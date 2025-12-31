@@ -13,7 +13,17 @@ const {
 } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 // Create a new client instance
 const client = new Client({
   intents: [
