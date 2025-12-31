@@ -788,21 +788,7 @@ client.on('messageCreate', async message => {
 });
 
 // Event: Button interactions
-client.on('interactionCreate', async interaction => {
-  if (!interaction.isButton()) return;
-  
-  if (interaction.customId === 'slash_help') {
-    const embed = new EmbedBuilder()
-      .setTitle('🔄 Slash Commands')
-      .setDescription('Here are the available slash commands:')
-      .addFields(
-        { name: 'General', value: client.slashCommands.map(cmd => `\`/${cmd.data.name}\` - ${cmd.data.description}`).join('\n') }
-      )
-      .setColor(0x5865F2);
-    
-    await interaction.reply({ embeds: [embed], ephemeral: true });
-  }
-});
+
 
 // Event: Guild member add (welcome message)
 client.on('guildMemberAdd', async member => {
